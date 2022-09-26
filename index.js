@@ -34,3 +34,4 @@ $(window).on("winEvent", (event)=> {
     info("alert", `A nyertes: O`)
    }
 })
+
