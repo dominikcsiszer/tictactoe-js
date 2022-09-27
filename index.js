@@ -1,10 +1,12 @@
-import Palya from "./palya.js"
+import Palya from "../palya.js"
 
 var palya
 
 const startBtn = $(".btn"),
 xField = $("#xname"),
 oField = $("#oname")
+
+
 
 startBtn.on("click", function() {
     if(xField.val() == "" || oField.val() == "") {
@@ -13,9 +15,6 @@ startBtn.on("click", function() {
         palya = new Palya()
         startBtn.addClass("disabled")
     }
-})
-$(window).on("winEvent", (e)=> {
-    console.log(e.winner)
 })
 
 function info(type, text) {
@@ -27,3 +26,8 @@ function info(type, text) {
         infoBox.css("opacity", 0)
     }, 3000)
 }
+$(window).on("winEvent", (event)=> {
+    /* console.log(event.detail); */
+    info("success", `A nyertes: `+event.detail)
+})
+

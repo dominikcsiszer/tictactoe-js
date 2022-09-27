@@ -3,13 +3,18 @@ class Kocka {
 
     #allapot
     #status
-    constructor(allapot, SZULOELEM) {
-        this.#allapot = allapot
+    #index;
+    constructor(index, allapot, SZULOELEM) {
+        this.#allapot = allapot;
+        this.#index = index;
         this.#status = ""
+
+        
         SZULOELEM.append('<div class="gameField"></div>')
         this.elem = SZULOELEM.children("div:last-child")
         
         this.elem.on("click", () => {
+            /* console.log(this); */
             this.setAllapot()
             this.click()
         })
@@ -46,7 +51,7 @@ class Kocka {
     }
 
     click() {
-        let clickEvent = new CustomEvent("clickElem")
+        let clickEvent = new CustomEvent("clickElem",{detail:this.#index})
         window.dispatchEvent(clickEvent)
     }
 }
