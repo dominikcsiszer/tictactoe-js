@@ -14,8 +14,8 @@ startBtn.on("click", function() {
         startBtn.addClass("disabled")
     }
 })
-$(window).on("winEvent", ()=> {
-    console.log(palya.getWinner())
+$(window).on("winEvent", (e)=> {
+    console.log(e.winner)
 })
 
 function info(type, text) {

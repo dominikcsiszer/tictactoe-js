@@ -36,12 +36,13 @@ class Palya {
 
             if(elem1 != "" && elem2 != "" && elem3 != "")
                 if(elem1 == elem2 && elem2  == elem3) {
-                    this.getWinner(elem1)
+                    console.log(elem1)
+                    let winEvent = new CustomEvent("winEvent", {winner: this.getWinner(elem1)})
+                    console.log(this.getWinner(elem1))
+                    window.dispatchEvent(winEvent)
                     this.#lista.forEach(element => {
                         element.winningAllapot()
                     })
-                    let winEvent = new CustomEvent("winEvent")
-                    window.dispatchEvent(winEvent)
                 }
         }
     }
