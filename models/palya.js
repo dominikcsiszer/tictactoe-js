@@ -1,4 +1,4 @@
-import Kocka from "./kocka.js"
+import Kocka from "./../views/kocka.js"
 
 class Palya {
     #winningChance = [
@@ -23,8 +23,8 @@ class Palya {
 
         $(window).on("clickElem", (event) => {
             /* console.log(event.detail); */
-            this.winChecker(event.detail);
-        });
+            this.winChecker(event.detail)
+        })
     }
 
     winChecker(elem) {
